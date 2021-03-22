@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.juliandominguez.dam_task_02.R
 import com.juliandominguez.dam_task_02.`class`.Hero
 import com.juliandominguez.dam_task_02.databinding.ItemListBinding
@@ -46,6 +48,12 @@ class HeroAdapter constructor(private val _dataSetHeroes: List<Hero>) : Recycler
         with(holder) {
             viewBinding.tvNameHero.text = hero.name
             viewBinding.tvAlterEgo.text = hero.alterEgo
+
+            Glide.with(_context)
+                .load(hero.imgUrl)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
+                .into(viewBinding.ivHeroProfile)
         }
     }
 
