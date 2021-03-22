@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">List Heroes</string>
     <string name="description_img">image profile hero</string>
+    <string name="sp_first_time">spFirstTime</string>
+    <string name="dialog_register_title">Register User</string>
+    <string name="user_name">User Name</string>
+    <string name="confirm_dialog">Register</string>
+    <string name="sp_user_name">spUserName</string>
+    <string name="default_username">Joe Default</string>
 </resources>

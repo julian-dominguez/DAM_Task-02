@@ -2,10 +2,11 @@ package com.juliandominguez.dam_task_02
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.juliandominguez.dam_task_02.`class`.Hero
 import com.juliandominguez.dam_task_02.adapters.HeroAdapter
 import com.juliandominguez.dam_task_02.databinding.ActivityMainBinding
@@ -28,6 +29,34 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             layoutManager = _linealLayoutManager;
             adapter = _heroAdapter
         }
+
+        /**
+         * Menejo de persistencia con SharedPreferences
+         */
+        val preference = getPreferences(MODE_PRIVATE)
+
+        // Verifico si es la primera vez que se accede al archivo
+        val isFirstTime = preference.getBoolean(getString(R.string.sp_first_time), true)
+
+        if (isFirstTime) {
+            val dialogViewRegister = layoutInflater.inflate(R.layout.dialog_register, null)
+            MaterialAlertDialogBuilder(this)
+                    .setView(dialogViewRegister)
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.confirm_dialog) { dialogInterface, i_ ->
+                        val userName = dialogViewRegister.findViewById<EditText>(R.id.et_dialog_user).text.toString()
+                        with(preference.edit()) {
+                            putBoolean(getString(R.string.sp_first_time), false)
+                            putString(getString(R.string.sp_user_name), userName)
+                                    .apply()
+                        }
+
+                    }.show()
+        }else{
+            val userName = preference.getString(getString(R.string.sp_user_name),getString(R.string.default_username))
+            Toast.makeText(this,"Welcome $userName", Toast.LENGTH_LONG).show()
+        }
+
     }
 
     private fun _getHeroes(): MutableList<Hero> {
