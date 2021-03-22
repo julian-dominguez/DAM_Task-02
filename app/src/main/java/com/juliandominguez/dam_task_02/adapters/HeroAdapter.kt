@@ -10,13 +10,14 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.juliandominguez.dam_task_02.R
 import com.juliandominguez.dam_task_02.`class`.Hero
 import com.juliandominguez.dam_task_02.databinding.ItemListBinding
+import com.juliandominguez.dam_task_02.interfaces.OnClickListener
 
 /**
  * Clase encargada del paso de información al RecyclerView
  * Esta clase es de tipo RecyclerView y su adapter, es el adapter interno creado para el manejo de
  * su información.
  */
-class HeroAdapter constructor(private val _dataSetHeroes: List<Hero>) : RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
+class HeroAdapter constructor(private val _dataSetHeroes: List<Hero>,private val _listener: OnClickListener) : RecyclerView.Adapter<HeroAdapter.ViewHolder>() {
 
     private lateinit var _context: Context
 
@@ -28,6 +29,14 @@ class HeroAdapter constructor(private val _dataSetHeroes: List<Hero>) : Recycler
 
         // Me permite acceder a los elementos de la vista (item_list.xml)
         val viewBinding = ItemListBinding.bind(view)
+
+        // Se define el funcionamiento del onClick
+        fun setListener(hero:Hero){
+            viewBinding.root.setOnClickListener{
+                _listener.onClick(hero)
+            }
+        }
+
     }
 
 
@@ -48,6 +57,7 @@ class HeroAdapter constructor(private val _dataSetHeroes: List<Hero>) : Recycler
         with(holder) {
             viewBinding.tvNameHero.text = hero.name
             viewBinding.tvAlterEgo.text = hero.alterEgo
+            setListener(hero)
 
             Glide.with(_context)
                     .load(hero.imgUrl)
