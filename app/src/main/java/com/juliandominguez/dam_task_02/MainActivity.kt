@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                                     .apply()
                         }
 
+                        Toast.makeText(this,"Thanks $userName, Your registration has been successful",Toast.LENGTH_LONG).show()
+
                     }.show()
         }else{
             val userName = preference.getString(getString(R.string.sp_user_name),getString(R.string.default_username))
