@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Lista de Héroes</string>
+    <string name="description_img">Imagen de perfil del héroe</string>
+    <string name="sp_first_time">spFirstTime</string>
+    <string name="dialog_register_title">Registro de Usuario</string>
+    <string name="user_name">Nombre de Usuario</string>
+    <string name="confirm_dialog">Registrar</string>
+    <string name="sp_user_name">spUserName</string>
+    <string name="default_username">Joe por defecto</string>
+    <string name="welcome">Bienvenido %1$s</string>
+    <string name="register_successful">Gracias %1$s, tu registro ha sido exitoso</string>
+</resources>

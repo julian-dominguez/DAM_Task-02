@@ -1,5 +1,6 @@
 package com.juliandominguez.dam_task_02
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var _linealLayoutManager: RecyclerView.LayoutManager
     private lateinit var _viewBinding: ActivityMainBinding
 
+    @SuppressLint("StringFormatInvalid")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _viewBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -51,12 +53,13 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                                     .apply()
                         }
 
-                        Toast.makeText(this,"Thanks $userName, Your registration has been successful",Toast.LENGTH_LONG).show()
+//                        Toast.makeText(this,"Thanks $userName, Your registration has been successful",Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,getString(R.string.register_successful,userName),Toast.LENGTH_LONG).show()
 
                     }.show()
         }else{
             val userName = preference.getString(getString(R.string.sp_user_name),getString(R.string.default_username))
-            Toast.makeText(this,"Welcome $userName", Toast.LENGTH_LONG).show()
+            Toast.makeText(this,getString(R.string.welcome,userName.toString()), Toast.LENGTH_LONG).show()
         }
 
     }

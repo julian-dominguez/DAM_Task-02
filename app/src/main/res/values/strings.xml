@@ -7,4 +7,6 @@
     <string name="confirm_dialog">Register</string>
     <string name="sp_user_name">spUserName</string>
     <string name="default_username">Joe Default</string>
+    <string name="welcome">Welcome %1$s</string>
+    <string name="register_successful">Thanks %1Ju$s, Your registration has been successful</string>
 </resources>
