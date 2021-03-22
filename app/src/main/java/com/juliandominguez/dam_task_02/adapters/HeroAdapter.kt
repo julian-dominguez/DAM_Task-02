@@ -50,10 +50,12 @@ class HeroAdapter constructor(private val _dataSetHeroes: List<Hero>) : Recycler
             viewBinding.tvAlterEgo.text = hero.alterEgo
 
             Glide.with(_context)
-                .load(hero.imgUrl)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .centerCrop()
-                .into(viewBinding.ivHeroProfile)
+                    .load(hero.imgUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .centerCrop()
+                    .circleCrop()
+                    .into(viewBinding.ivHeroProfile)
+
         }
     }
 

@@ -35,21 +35,11 @@ class MainActivity : AppCompatActivity() {
         val blackWindow = Hero("Black Window","Natasha Romanoff","https://de10.com.mx/sites/default/files/styles/detalle_nota/public/2019/06/03/black_widow_pelicula_filtradas_p.jpg?itok=5Uy24wbw")
         val scarletWitch = Hero("Scarlet Witch", "Wanda Maximoff","https://media.apnarm.net.au/media/images/2019/05/20/imagev109f92e4dece38eccd8e5a974565da859-1pf8tmznomqtyqgvbs2_t1880.jpg")
 
-        heroes.add(ironMan)
-        heroes.add(blackWindow)
-        heroes.add(scarletWitch)
-
-        heroes.add(ironMan)
-        heroes.add(blackWindow)
-        heroes.add(scarletWitch)
-
-        heroes.add(ironMan)
-        heroes.add(blackWindow)
-        heroes.add(scarletWitch)
-
-        heroes.add(ironMan)
-        heroes.add(blackWindow)
-        heroes.add(scarletWitch)
+        for (i in 1..6){
+            heroes.add(ironMan)
+            heroes.add(blackWindow)
+            heroes.add(scarletWitch)
+        }
 
         return heroes
 
